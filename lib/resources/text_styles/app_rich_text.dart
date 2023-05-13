@@ -22,7 +22,7 @@ class AppRichText extends StatelessWidget {
           TextSpan(
             text: text1.toUpperCase(),
             style: GoogleFonts.nunitoSans(
-              fontSize: 32.sp,
+              fontSize: 32,
               fontWeight: FontWeight.w800,
               letterSpacing: 1,
             ),
@@ -30,7 +30,7 @@ class AppRichText extends StatelessWidget {
           TextSpan(
             text: text2.toUpperCase(),
             style: GoogleFonts.nunitoSans(
-              fontSize: 32.sp,
+              fontSize: 32,
               fontWeight: FontWeight.w800,
               letterSpacing: 1,
               foreground: Paint()
@@ -42,7 +42,7 @@ class AppRichText extends StatelessWidget {
           TextSpan(
             text: '.',
             style: GoogleFonts.nunitoSans(
-              fontSize: 32.sp,
+              fontSize: 32,
               fontWeight: FontWeight.w800,
               letterSpacing: 1,
             ),

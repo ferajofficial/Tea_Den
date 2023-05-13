@@ -25,11 +25,11 @@ class AppLargeText extends StatelessWidget {
       textAlign: TextAlign.center,
       overflow: TextOverflow.clip,
       style: GoogleFonts.nunitoSans(
-        fontSize: 45.sp,
+        fontSize: 45,
         color: color,
         fontWeight: fontWeight,
         letterSpacing: letterSpacing,
-        height: 1.2.h,
+        height: 1.2,
       ),
     );
   }

@@ -2,7 +2,7 @@
 //! Don't use font sizes less than 16 because it is the least size visible to a user in a UI
 
 
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:tea_shop/utils/colors.dart';
 import 'package:tea_shop/utils/import.dart';
 
@@ -34,7 +34,7 @@ class AppSmallText extends StatelessWidget {
         color: color,
         fontWeight: fontWeight,
         letterSpacing: letterSpacing,
-        height: 1.3.h,
+        height: 1.3,
       ),
     );
   }
