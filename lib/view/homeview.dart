@@ -1,12 +1,5 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tea_shop/resources/padding/app_padding.dart';
-import 'package:tea_shop/resources/text_styles/app_medium_text.dart';
-import 'package:tea_shop/resources/text_styles/app_small_text.dart';
-import 'package:tea_shop/utils/colors.dart';
 import 'package:tea_shop/utils/import.dart';
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'package:tea_shop/view/customnavigation.dart';
-import 'package:tea_shop/view/drawview.dart';
+import 'package:tea_shop/utils/customnavbar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -46,26 +39,26 @@ class HomeView extends StatelessWidget {
     final List<Map<String, String>> listmap = [
       {
         "beverages-title": "Bubble Tea",
-        "beverages-price": "\$ 56.99",
+        "beverages-price": " 56.99",
         "beverages-subtitle": "Good day time",
         "beverages-image": "assets/images/Bubble Tea.png",
       },
       {
         "beverages-title": "Purple Tea",
-        "beverages-price": "\$ 25.99",
+        "beverages-price": " 25.99",
         "beverages-subtitle": "Happy Hours",
         "beverages-image": "assets/images/Purple Tea.png",
       },
       {
         "beverages-title": "Bubble Tea",
-        "beverages-price": "\$ 44.99",
+        "beverages-price": " 44.99",
         "beverages-subtitle": "Good Day",
         "beverages-image": "assets/images/Purple Tea.png",
       },
     ];
     return Scaffold(
       extendBody: true,
-      //extendBodyBehindAppBar: true,
+
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -86,14 +79,16 @@ class HomeView extends StatelessWidget {
               ),
             );
           },
-          icon: const Icon(Icons.menu, color: kDeep),
+          icon: const Icon(
+            Icons.menu,
+            color: kDeep,
+            size: 35,
+          ),
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding:
-              //const EdgeInsets.all(10),
-              AppPadding.kHalfPad,
+          padding: AppPadding.kHalfPad,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -116,7 +111,6 @@ class HomeView extends StatelessWidget {
                   fillColor: kprimarylightDeep,
                 ),
               ),
-              //Divider(),
               const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -147,40 +141,49 @@ class HomeView extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: gridmap.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      width: 135.w,
-                      decoration: BoxDecoration(
-                        color: kprimarylight,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Align(
-                            alignment: Alignment.topLeft,
-                            child: Icon(
-                              Icons.bookmark,
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const PurchaseView()));
+                      },
+                      child: Container(
+                        width: 135.w,
+                        decoration: BoxDecoration(
+                          color: kprimarylight,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            if (index == 0)
+                              const Align(
+                                alignment: Alignment.topLeft,
+                                child: Icon(
+                                  Icons.bookmark,
+                                  color: kprimarydeep,
+                                  size: 30.0,
+                                ),
+                              ),
+                            Expanded(
+                              child: Image.asset(
+                                gridmap[index]["beverages-image"]!,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            AppSmallText(
+                              text: gridmap[index]["beverages-name"]!,
+                              fontSize: 18,
                               color: kprimarydeep,
-                              size: 30.0,
                             ),
-                          ),
-                          Expanded(
-                            child: Image.asset(
-                              gridmap[index]["beverages-image"]!,
+                            SizedBox(
+                              height: 10.h,
                             ),
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          AppSmallText(
-                            text: gridmap[index]["beverages-name"]!,
-                            fontSize: 18,
-                            color: kprimarydeep,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -190,21 +193,17 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-//               Padding(
-//   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-//   child: LinearPIndicator(
-//     percent: 0.11,
-//     lineHeight: 20,
-//     animation: true,
-//     progressColor: Color(0xFF5EFB76),
-//     backgroundColor: Color(0xFFF1F4F8),
-//     barRadius: Radius.circular(20),
-//     padding: EdgeInsets.zero,
-//   ),
-// )
-              const LinearProgressIndicator(
-                backgroundColor: Colors.white,
-                valueColor: AlwaysStoppedAnimation<Color>(kprimarylight),
+              Padding(
+                padding: AppPadding.kHalfPad,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: const LinearProgressIndicator(
+                    backgroundColor: kprimarylightDeep,
+                    value: 0.2,
+                    minHeight: 10,
+                    valueColor: AlwaysStoppedAnimation<Color>(kprimarylight),
+                  ),
+                ),
               ),
               const SizedBox(height: 20),
               const AppMediumText(
@@ -240,7 +239,7 @@ class HomeView extends StatelessWidget {
                               )),
                           Positioned(
                               top: 5,
-                              left: 7,
+                              left: 10,
                               bottom: 5,
                               child: Image.asset(
                                 listmap[index]["beverages-image"]!,
@@ -265,10 +264,21 @@ class HomeView extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    trailing: AppSmallText(
-                      text: listmap[index]["beverages-price"]!,
-                      fontSize: 18,
-                      color: kprimarydeep,
+                    trailing: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const AppSmallText(
+                          text: "\$",
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: ksecondaryDeep,
+                        ),
+                        AppSmallText(
+                          text: listmap[index]["beverages-price"]!,
+                          fontSize: 18,
+                          color: kprimarydeep,
+                        ),
+                      ],
                     ),
                   );
                 },
@@ -280,24 +290,7 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ),
-        bottomNavigationBar: CustomNavigationBar()
-      //  FloatingNavbar(
-      //   backgroundColor: Colors.white,
-      //   borderRadius: 30,
-      //   itemBorderRadius: 100,
-      //   selectedBackgroundColor: kprimarylight,
-      //   unselectedItemColor: kDeep,
-      //   onTap: (int val) {
-      //     //returns tab id which is user tapped
-      //   },
-      //   currentIndex: 2,
-      //   items: [
-      //     FloatingNavbarItem(icon: Icons.home, title: 'Home'),
-      //     FloatingNavbarItem(icon: Icons.explore, title: 'Explore'),
-      //     FloatingNavbarItem(icon: Icons.chat_bubble_outline, title: 'Chats'),
-      //     FloatingNavbarItem(icon: Icons.settings, title: 'Settings'),
-      //   ],
-      // ),
+      //bottomNavigationBar: Navbar(),
     );
   }
 }

@@ -38,7 +38,7 @@ dependencies:
 
   google_fonts: ^4.0.4
   flutter_screenutil: ^5.7.0
-  floating_bottom_navigation_bar: ^1.5.2
+  # floating_bottom_navigation_bar: ^1.5.2
 
 dev_dependencies:
   flutter_test:

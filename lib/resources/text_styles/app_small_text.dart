@@ -1,9 +1,6 @@
 //this is the textstyle of subtitle1
 //! Don't use font sizes less than 16 because it is the least size visible to a user in a UI
 
-
-
-import 'package:tea_shop/utils/colors.dart';
 import 'package:tea_shop/utils/import.dart';
 
 class AppSmallText extends StatelessWidget {
@@ -13,15 +10,20 @@ class AppSmallText extends StatelessWidget {
   final double? letterSpacing;
   final double fontSize;
   final TextAlign? textAlign;
-  const AppSmallText({
-    Key? key,
-    required this.text,
-    this.color = kDeep,
-    this.fontWeight = FontWeight.bold,
-    this.letterSpacing,
-    this.textAlign = TextAlign.center,
-    this.fontSize = 16,
-  }) : super(key: key);
+  final TextDirection? textDirection;
+  
+  const AppSmallText(
+      {Key? key,
+      required this.text,
+      this.color = kDeep,
+      this.fontWeight = FontWeight.bold,
+      this.letterSpacing,
+      this.textAlign = TextAlign.center,
+      this.fontSize = 16,
+      this.textDirection,
+      
+      })
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

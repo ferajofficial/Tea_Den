@@ -1,9 +1,4 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tea_shop/utils/colors.dart';
 import 'package:tea_shop/utils/import.dart';
-
-import '../resources/text_styles/app_medium_text.dart';
-import '../resources/text_styles/app_small_text.dart';
 
 class DrawerView extends StatelessWidget {
   const DrawerView({super.key});
@@ -13,13 +8,19 @@ class DrawerView extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          SvgPicture.asset(
-            "assets/vectors/Ellipse 2.svg",
+          Positioned(
+            right: 0,
+            left: 0,
+            bottom: 300,
+            child: SvgPicture.asset(
+              "assets/vectors/DrawBg.svg",
+              height: 670,
+              fit: BoxFit.cover,
+            ),
           ),
-          SvgPicture.asset("assets/vectors/Ellipse 1.svg"),
           Positioned(
               top: 40,
-              left: 300,
+              left: 360,
               child: IconButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -71,17 +72,18 @@ class DrawerView extends StatelessWidget {
             left: 35,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Divider(),
-                AppMediumText(text: "Categories"),
-                Divider(),
-                AppMediumText(text: "Your Orders"),
-                Divider(),
-                AppMediumText(text: "Wishlist"),
-                Divider(),
-                AppMediumText(text: "FAQs"),
-                Divider(),
-                AppMediumText(text: "Log Out"),
+              children: [
+                //Divider(),
+                SizedBox(height: 10.h),
+                const AppMediumText(text: "Categories"),
+                SizedBox(height: 10.h),
+                const AppMediumText(text: "Your Orders"),
+                SizedBox(height: 10.h),
+                const AppMediumText(text: "Wishlist"),
+                SizedBox(height: 10.h),
+                const AppMediumText(text: "FAQs"),
+                SizedBox(height: 10.h),
+                const AppMediumText(text: "Log Out"),
               ],
             ),
           )

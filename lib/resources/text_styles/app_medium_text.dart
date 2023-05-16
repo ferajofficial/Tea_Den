@@ -1,7 +1,6 @@
 //this is the textstyle of subtitle1
 //! Don't use font sizes less than 16 because it is the least size visible to a user in a UI
 
-
 import 'package:tea_shop/utils/import.dart';
 
 class AppMediumText extends StatelessWidget {
@@ -10,6 +9,7 @@ class AppMediumText extends StatelessWidget {
   final FontWeight fontWeight;
   final double? letterSpacing;
   final double fontsize;
+  //final double fontFeature;
 
   const AppMediumText({
     Key? key,
