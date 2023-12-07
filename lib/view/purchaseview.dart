@@ -27,27 +27,27 @@ class PurchaseView extends StatelessWidget {
               height: 300,
             ),
           ),
-          Positioned(
+          const Positioned(
             left: 30,
             top: 150,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const AppMediumText(
+                 AppMediumText(
                   text: "Lemon Tea",
                   fontsize: 25,
                   color: kprimarydeep,
                 ),
-                const AppSmallText(
+                AppSmallText(
                   text: "Good day time",
                   color: kprimarydeep,
                   fontWeight: FontWeight.w400,
                   fontSize: 17,
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children:  [
                     AppSmallText(
                       text: "\$",
                       fontSize: 25,

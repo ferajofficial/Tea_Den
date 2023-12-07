@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:tea_shop/utils/import.dart';
 
 class CartView extends StatelessWidget {
@@ -188,9 +187,9 @@ class CartView extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             color: Colors.white,
                           ),
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children:  [
                               AppSmallText(
                                 text: "\$",
                                 fontSize: 15,
